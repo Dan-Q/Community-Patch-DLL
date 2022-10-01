@@ -108,6 +108,9 @@ bool										 isDLCAvailable(PlayerTypes p, const GUID& kDLCID);
 bool                                       isHotSeat();
 bool                                       isHotSeatGame();
 bool                                       isHuman(PlayerTypes p);
+#if defined(MOD_BALANCE_CORE)
+bool									   isRealPlayer(PlayerTypes p);
+#endif
 bool                                       isInternetGame();
 bool                                       isMinorCiv(PlayerTypes p);
 bool                                       isReallyNetworkMultiPlayer();

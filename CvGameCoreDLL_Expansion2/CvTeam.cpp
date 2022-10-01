@@ -3218,7 +3218,7 @@ bool CvTeam::addPlayer(PlayerTypes eID)
 	if (eID==NO_PLAYER)
 		return false;
 
-	if (!GET_PLAYER(eID).isAlive())
+	if (!CvPreGame::isRealPlayer(eID))
 		return false;
 
 	bool bPlayerAdded = false;

@@ -1212,6 +1212,20 @@ void setPersistSettings(bool bPersist)
 	g_bPersistSettings = bPersist;
 }
 
+#if defined(MOD_BALANCE_CORE)
+/**
+* Determines if a player is actually valid in the game or not.
+* A detailed explanation of why this function was added can be found here: https://github.com/LoneGazebo/Community-Patch-DLL/issues/9226
+* @param PlayerTypes p A civilization player type, e.g. -1, 0, 1, etc.
+* @returns A boolean determining if the player is actually in the game or not
+*/
+bool isRealPlayer(PlayerTypes playerType)
+{
+	SlotStatus s = slotStatus(playerType);
+	return (s == SS_TAKEN || s == SS_COMPUTER);
+}
+#endif
+
 bool isPlayable(PlayerTypes p)
 {
 	if(p >= 0 && p < MAX_PLAYERS)
